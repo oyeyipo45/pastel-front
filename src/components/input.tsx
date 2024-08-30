@@ -1,43 +1,40 @@
-import React, { useState } from "react";
-import { Formik, Field, ErrorMessage } from "formik";
 import { useCreateNoteMutation } from "@/redux/api";
+import { useState } from "react";
 
-interface Form {
-  title: string;
-  content: string;
-}
 const NoteInput = () => {
-  const [createNote] = useCreateNoteMutation();
-  const [error, setError] = useState(null);
+  const [title, SetTitle] = useState("");
+  const [content, SetContent] = useState("");
 
-  const onSubmit = async (values: Form, actions: any) => {
-    try {
-      await createNote(values);
-      actions.resetForm();
-      setError(null);
-    } catch (err: any) {
-      setError(err.message || "An error occurred while creating the note.");
-    } finally {
-      actions.setSubmitting(false);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    if (name === "title") {
+      SetTitle(value);
+    } else if (name === "content") {
+      SetContent(value);
+    }
+  };
+
+  const [createNote] = useCreateNoteMutation();
+
+  const createPostHandler = async () => {
+    if (!title || !content) {
+      alert("Please enter a fill all fields");
+    } else {
+      await createNote({ title, content }).unwrap();
+      SetTitle("");
+      SetContent("");
     }
   };
 
   return (
-    <Formik initialValues={{ title: "", content: "" }} onSubmit={onSubmit}>
-      {({ isSubmitting }) => (
-        <div className="postInput">
-          <Field type="text" placeholder="Add Title" name="title" validate={(value: string) => (value ? "" : "Please enter a title")} />
-          <ErrorMessage name="title" component="div" className="error" />
-
-          <Field type="text" placeholder="Add Content" name="content" component="textarea" />
-
-          <button id="push" type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Creating..." : "Add Note"}
-          </button>
-          {error && <div className="error">{error}</div>}
-        </div>
-      )}
-    </Formik>
+    <div className="postInput">
+      <input className="text-neutral-950" name="title" value={title} type="text" placeholder="Add Title" onChange={handleChange} />
+      <input className="text-neutral-950" name="content" value={content} type="text" placeholder="Add Content" onChange={handleChange} />
+      <button id="push" type="submit" onClick={createPostHandler}>
+        Add Post
+      </button>
+    </div>
   );
 };
 

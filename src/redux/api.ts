@@ -17,7 +17,7 @@ export const NoteAPI = createApi({
     createNote: builder.mutation<NoteResponse, Partial<Note>>({
       query: (body) => ({
         url: "/notes",
-        method: "Note",
+        method: "Post",
         body,
       }),
       invalidatesTags: ["Note"],
