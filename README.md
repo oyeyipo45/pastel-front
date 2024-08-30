@@ -1,5 +1,8 @@
-* To run this project locally, follow the steps below:
+<p align="center">
+    <img src="./src/assets/pastel-logo.svg" alt="Pastel Logo" width="200" height="200" />
+</p>
 
+* To run this project locally, follow the steps below:
 
 * Install the project dependencies.
   ```
