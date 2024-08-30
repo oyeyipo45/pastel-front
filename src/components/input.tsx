@@ -1,3 +1,5 @@
+"use client";
+
 import { useCreateNoteMutation } from "@/redux/api";
 import { useState } from "react";
 
@@ -29,12 +31,10 @@ const NoteInput = () => {
     }
   };
 
-  const errorVisibility = error ? "block" : "hidden";
-
   return (
     <div className="">
       <p className="text-neutral-950">Create Note</p>
-      <div className="flex justify-between my-4 gap-4">
+      <div className="flex justify-between my-4 gap-4 flex-col md:flex-row">
         <input className="text-neutral-950 p-2 rounded-md" name="title" value={title} type="text" placeholder="Add Title" onChange={handleChange} />
         <input
           className="text-neutral-950 p-2 rounded-md"

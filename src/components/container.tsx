@@ -18,7 +18,7 @@ export default function Container() {
       {notes && (
         <>
           <div className="text-neutral-950">Notes</div>
-          <List notes={notes.data} />{" "}
+          <List notes={notes.data} />
         </>
       )}{" "}
     </>
