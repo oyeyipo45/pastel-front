@@ -34,10 +34,10 @@ export function UpdateNoteModal(props: UpdateNoteModalProps) {
   };
 
   return (
-    <div className="fixed bg-slate-300 flex justify-center items-center inset-0 z-50">
-      <div className="relative p-[20px] w-[400px] bg-red-300 rounded-lg">
+    <div className="fixed bg-white flex justify-center items-center inset-0 z-50 ">
+      <div className="relative p-[20px] w-[400px] bg-blue-50 rounded-lg ">
         <button
-          className="text-neutral-950 h-8 w-8 absolute top-2 right-2 border-2 rounded-full flex justify-center items-center cursor-pointer"
+          className="text-neutral-950 h-8 w-8 absolute top-2 right-2 border-[1.5px]  border-blue-500 rounded-full flex justify-center items-center cursor-pointer"
           onClick={onClose}
         >
           &times;
@@ -61,11 +61,11 @@ export function UpdateNoteModal(props: UpdateNoteModalProps) {
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="Content" className="text-neutral-950">
+            <label htmlFor="Content" className="text-neutral-950 p-2">
               Content:
             </label>
             <textarea
-              className="text-neutral-950 p-2 rounded-md w-full"
+              className="text-neutral-950 p-2 rounded-md w-full h-40"
               id="Content"
               value={updatedContent}
               onChange={(e) => setUpdatedContent(e.target.value)}
