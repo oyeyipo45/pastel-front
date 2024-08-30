@@ -1,7 +1,8 @@
+
 # Quick Local Setup Guide
 
 <p align="center">
-    <img src="./pastel-logo.svg" alt="Pastel Logo" width="200" height="200" />
+    <img src="./src/assets/pastel-logo.svg" alt="Pastel Logo" width="200" height="200" />
 </p>
 
 - To pull and run the pastel frontend locally, follow the steps below:
@@ -17,6 +18,8 @@
   ```
   cd pastel-front/
   ```
+
+* To run this project locally, follow the steps below:
 
 * Install the project dependencies.
   ```
