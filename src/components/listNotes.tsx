@@ -1,7 +1,9 @@
 import { ListNotes, Note } from "@/interfaces/note.interface";
 
 export default function List(props: ListNotes) {
-    const { notes } = props;
+  const { notes } = props;
+  
+  
     
     if (!notes) return <div>No notes</div>
     

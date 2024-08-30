@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { NoteAPI } from "./api";
 
 export const store = configureStore({
   reducer: {
+    [NoteAPI.reducerPath]: NoteAPI.reducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(NoteAPI.middleware),
 });
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
