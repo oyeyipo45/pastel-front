@@ -9,7 +9,7 @@ export default function List(props: ListNotes) {
   if (notes.length === 0)
     return (
       <div className="w-full h-full flex justify-center items-center">
-        <h1 className="text-neutral-950">No Notes available</h1>
+        <h1 className="text-neutral-950 text-3xl font-medium">No Notes available</h1>
       </div>
     );
 

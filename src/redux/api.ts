@@ -29,9 +29,17 @@ export const NoteAPI = createApi({
       }),
       invalidatesTags: ["Note"],
     }),
+    updateNote: builder.mutation<NoteResponse, Partial<Note>>({
+      query: (body) => ({
+        url: `/notes/${body._id}`,
+        method: "put",
+        body,
+      }),
+      invalidatesTags: ["Note"],
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetNotesQuery, useCreateNoteMutation, useDeleteNoteMutation } = NoteAPI;
+export const { useGetNotesQuery, useCreateNoteMutation, useDeleteNoteMutation, useUpdateNoteMutation } = NoteAPI;
