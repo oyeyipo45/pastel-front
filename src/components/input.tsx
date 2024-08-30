@@ -1,3 +1,5 @@
+"use client";
+
 import { useCreateNoteMutation } from "@/redux/api";
 import { useState } from "react";
 
@@ -19,22 +21,24 @@ const NoteInput = () => {
   const [createNote] = useCreateNoteMutation();
 
   const createPostHandler = async () => {
-    if (!title || !content) {
-      setError("Please fill all fields");
-    } else {
-      await createNote({ title, content }).unwrap();
-      setError("");
-      setTitle("");
-      setContent("");
+    try {
+      if (!title || !content) {
+        setError("Please fill all fields");
+      } else {
+        await createNote({ title, content }).unwrap();
+        setError("");
+        setTitle("");
+        setContent("");
+      }
+    } catch (error: any) {
+      setError(error.message);
     }
   };
 
-  const errorVisibility = error ? "block" : "hidden";
-
   return (
     <div className="">
-      <p className="text-neutral-950">Create Note</p>
-      <div className="flex justify-between my-4 gap-4">
+      <p className="text-neutral-950 text-xl md:text-2xl font-medium">Create Note</p>
+      <div className="flex justify-between mt-4 mb-2 gap-4 flex-col md:flex-row">
         <input className="text-neutral-950 p-2 rounded-md" name="title" value={title} type="text" placeholder="Add Title" onChange={handleChange} />
         <input
           className="text-neutral-950 p-2 rounded-md"
