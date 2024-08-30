@@ -37,7 +37,7 @@
   ```
 
 
-* Start the application in development mode.
+* Start the application in development mode after confirming you can see the swagger documentation on http://localhost:9090/api-docs#/.
   ```
   npm run dev
   ```
