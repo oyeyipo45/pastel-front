@@ -27,7 +27,7 @@ export default function NoteCard(props: Partial<Note>) {
   return (
     <>
       {openModal && <UpdateNoteModal note={props} onClose={onClose} />}
-      <div className="flex flex-col my-4 bg-white border-1 rounded-xl">
+      <div className="flex flex-col my-4 bg-white border-1 rounded-xl shadow shadow-blue-500/40 hover:shadow-indigo-500/40">
         <div className="flex justify-between p-4 gap-4 flex-col md:flex-row md:gap-10 items-start md:items-center">
           <div className="">
             <h2 className="text-neutral-950">Title : {title}</h2>

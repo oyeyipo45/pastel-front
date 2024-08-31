@@ -35,7 +35,7 @@ export function UpdateNoteModal(props: UpdateNoteModalProps) {
 
   return (
     <div className="fixed bg-white flex justify-center items-center inset-0 z-50 ">
-      <div className="relative p-[20px] w-[400px] bg-blue-50 rounded-lg ">
+      <div className="relative p-[20px] w-[400px] bg-blue-50 rounded-lg shadow-lg">
         <button
           className="text-neutral-950 h-8 w-8 absolute top-2 right-2 border-[1.5px]  border-blue-500 rounded-full flex justify-center items-center cursor-pointer"
           onClick={onClose}
